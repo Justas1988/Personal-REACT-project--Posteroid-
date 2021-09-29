@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import NewcardButton from "./Components/NewcardButton";
+import CardsList from "./Components/CardsList";
+
 
 function App() {
+  const [cards, setCards] = useState([{
+    id: 11,
+    title: "title-textas",
+    main: "main textas",
+    bottom: "bottom tekstas"
+  }])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  <>  
+    <NewcardButton/>
+    <input type="text" value="Title Text"></input>
+    <input type="text" value="Main Text"></input>
+    <input type="text" value="Bottom Text"></input>
+    <CardsList cardsArray = {cards}/>
+
+  </> 
   );
 }
 

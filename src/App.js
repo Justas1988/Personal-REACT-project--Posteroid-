@@ -10,7 +10,7 @@ const cardTitleRef = useRef()
 const cardMainRef = useRef()
 const cardBottomRef = useRef()
 
-function addCardHandler (e) {
+function addCardHandler () {
   const cardTitle = cardTitleRef.current.value;
   const cardMain = cardMainRef.current.value;
   const cardBottom = cardBottomRef.current.value;  
@@ -23,7 +23,12 @@ function addCardHandler (e) {
   cardTitleRef.current.value = null;
   cardMainRef.current.value = null;
   cardBottomRef.current.value = null;
+}
 
+function deleteCardHandler (id) { 
+  const newCards = [...cards];
+  const filteredCards = newCards.filter(function(element) { return element.id !== id; });
+  setCards(filteredCards);
 }
 
 
@@ -34,7 +39,7 @@ function addCardHandler (e) {
     <input ref={cardMainRef} type="text"></input>
     <input ref={cardBottomRef} type="text"></input>
       <div className="cardContainer">
-        <CardsList cardsArray = {cards}/>
+        <CardsList cardsArray = {cards} deleteCard = {deleteCardHandler}/>
       </div>
   </> 
   );

@@ -6,6 +6,7 @@ export default function Cards(props) {
         <label>{props.titleText}</label>
         <div>{props.mainText}</div>
         <div>{props.bottomText}</div>
+        <button onClick={()=>props.deleteCard(props.cardId)}>Delete</button>
     </div>
     )
 }

@@ -33,11 +33,17 @@ body * {
     justify-content: space-between;
 }
 
+label {
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 800;
+}
+
 .deleteButton {
     text-transform: uppercase;
     border: none;
     color: red;
-    background-color: white;  
+    background-color: transparent;  
     transition-duration: 0.2s;  
 }
 
@@ -45,10 +51,21 @@ body * {
     transform: rotate(90deg);
     cursor: pointer;
 }
+.mainTextDiv {
+    margin-top: 15px;
+    margin-bottom: 7px;
+    font-size: 20px;
+    background-color: white;
+    border-radius: 15px;
+    height: 265px;
+    word-wrap: break-word;
+    padding: 8px;
+}
 .card {
     border: solid 4px blueviolet;
+    background-color: #F2F2F2;
     border-radius: 20px;
-    padding: 20px;
+    padding: 10px;
     margin: 3px;
     width: 250px;
     height: 350px;

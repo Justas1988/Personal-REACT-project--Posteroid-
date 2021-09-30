@@ -35,9 +35,9 @@ function deleteCardHandler (id) {
   return (
   <>  
     <NewcardButton addCard={addCardHandler}/>
-    <input ref={cardTitleRef} type="text"></input>
-    <input ref={cardMainRef} type="text"></input>
-    <input ref={cardBottomRef} type="text"></input>
+    <input ref={cardTitleRef} type="text" maxlength="17"></input>
+    <input ref={cardMainRef} type="text" maxlength="150"></input>
+    <input ref={cardBottomRef} type="text" maxlength="17"></input>
       <div className="cardContainer">
         <CardsList cardsArray = {cards} deleteCard = {deleteCardHandler}/>
       </div>

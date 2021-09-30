@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import NewcardButton from "./Components/NewcardButton";
 import CardsList from "./Components/CardsList";
 import { v4 as uuidv4 } from 'uuid'; //unique ID generator
@@ -6,25 +6,33 @@ import EditModule from "./Components/EditModule";
 
 function App() {
   const [cards, setCards] = useState([])
-  const [open, setOpen] = useState(0)
 
-const cardTitleRef = useRef()
-const cardMainRef = useRef()
-const cardBottomRef = useRef()
+  const [titleText, setTitleText] = useState("Card Title") //input state
+  const [mainText, setMainText] = useState("Main Card Text") //input state
+  const [bottomText, setBottomText] = useState("Card Bottom Text") //input state
+
+  const [open, setOpen] = useState(0) //edit state
+
+function titleInputHandler (e) {
+  setTitleText(e.target.value)
+}
+function mainInputHandler (e) {
+  setMainText(e.target.value)
+}
+function bottomInputHandler (e) {
+  setBottomText(e.target.value)
+}
 
 function addCardHandler () {
-  const cardTitle = cardTitleRef.current.value;
-  const cardMain = cardMainRef.current.value;
-  const cardBottom = cardBottomRef.current.value;  
 
-  if (cardTitle === "" || cardMain === "" || cardBottom === "") return;
+  if (titleText === "" || mainText === "" || bottomText === "") return;
   setCards(prevCards => {
-    return [...prevCards, {id: uuidv4(), title: cardTitle, main: cardMain, bottom: cardBottom}]
+    return [...prevCards, {id: uuidv4(), title: titleText, main: mainText, bottom: bottomText}]
   })
 
-  cardTitleRef.current.value = null;
-  cardMainRef.current.value = null;
-  cardBottomRef.current.value = null;
+  setTitleText("Card Title")
+  setMainText("Main Card Text")
+  setBottomText("Card Bottom Text")
 }
 
 function deleteCardHandler (id) { 
@@ -37,9 +45,9 @@ function deleteCardHandler (id) {
   return (
   <>  
     <NewcardButton addCard={addCardHandler}/>
-    <input ref={cardTitleRef} type="text" maxlenght="17"></input>
-    <input ref={cardMainRef} type="text" maxlength="150"></input>
-    <input ref={cardBottomRef} type="text" maxlength="17"></input>
+    <input value={titleText} onChange={titleInputHandler} type="text" maxlenght="17"></input>
+    <input value={mainText} onChange={mainInputHandler} type="text" maxlength="150"></input>
+    <input value={bottomText} onChange={bottomInputHandler} type="text" maxlength="17"></input>
       <div className="cardContainer">
         <CardsList cardsArray = {cards} deleteCard = {deleteCardHandler}/>
         <EditModule open={open} /> 

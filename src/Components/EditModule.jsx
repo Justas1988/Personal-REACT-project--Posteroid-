@@ -6,8 +6,6 @@ export default function EditModule({open}) {
     if(open === 0) {
         return null;
     }
-
-
     return (
         <div className="editModuleContainer">
             <div className="editModule">

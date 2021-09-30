@@ -27,6 +27,24 @@ body * {
     flex-wrap: wrap;
 }
 
+.cardTopDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.deleteButton {
+    text-transform: uppercase;
+    border: none;
+    color: red;
+    background-color: white;  
+    transition-duration: 0.2s;  
+}
+
+.deleteButton:hover {
+    transform: rotate(90deg);
+    cursor: pointer;
+}
 .card {
     border: solid 4px blueviolet;
     border-radius: 20px;
@@ -35,13 +53,13 @@ body * {
     width: 250px;
     height: 350px;
     transition-duration: 0.2s;
-    
-
 }
+
+
 
 .card:hover {
     /* box-shadow: 2px -2px 10px 3px rgb(191, 150, 204); */
-    transform: rotate(0.5deg);
+    transform: translateY(2px);
 
 }
 

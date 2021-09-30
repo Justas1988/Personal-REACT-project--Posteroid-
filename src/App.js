@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import NewcardButton from "./Components/NewcardButton";
 import CardsList from "./Components/CardsList";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid'; //unique ID generator
 
 function App() {
   const [cards, setCards] = useState([])

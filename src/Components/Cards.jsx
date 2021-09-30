@@ -10,7 +10,7 @@ export default function Cards(props) {
         <div className="mainTextDiv">{props.mainText}</div>
         <div className="bottomDiv">
             <div>{props.bottomText}</div>
-            <button className="editButton">EDIT</button>
+            <button className="editButton" onClick={() => props.openEditor(props.cardId)}>EDIT</button>
         </div>
     </div>
     )

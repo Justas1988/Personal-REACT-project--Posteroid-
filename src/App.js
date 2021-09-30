@@ -13,6 +13,10 @@ function App() {
 
   const [open, setOpen] = useState(0) //edit state
 
+function editModuleHandler(e) {
+  setOpen(e);
+}
+
 function titleInputHandler (e) {
   setTitleText(e.target.value)
 }
@@ -41,6 +45,22 @@ function deleteCardHandler (id) {
   setCards(filteredCards);
 }
 
+function editCardHandler(id, newTitle, newMain, newBottom) { //edit card function
+  let cardsCopy = [...cards]
+  for (let i = 0; i < cardsCopy.length; i++) {
+    if (cardsCopy[i].id === id) {
+      cardsCopy[i].title = newTitle;
+      cardsCopy[i].main = newMain;
+      cardsCopy[i].bottom = newBottom;
+      break;
+    }    
+  }
+
+setCards(cardsCopy)
+editModuleHandler(0)
+
+}
+
 
   return (
   <>  
@@ -49,8 +69,8 @@ function deleteCardHandler (id) {
     <input value={mainText} onChange={mainInputHandler} type="text" maxlength="150"></input>
     <input value={bottomText} onChange={bottomInputHandler} type="text" maxlength="17"></input>
       <div className="cardContainer">
-        <CardsList cardsArray = {cards} deleteCard = {deleteCardHandler}/>
-        <EditModule open={open} /> 
+        <CardsList openEditor={editModuleHandler} cardsArray = {cards} deleteCard = {deleteCardHandler}/>
+        <EditModule editCardHandler = {editCardHandler} open={open}/> 
       </div>
   </> 
   );

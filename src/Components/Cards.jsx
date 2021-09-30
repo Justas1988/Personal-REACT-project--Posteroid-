@@ -4,12 +4,14 @@ export default function Cards(props) {
     return (
     <div className="card">
         <div className="cardTopDiv">
-            <label>{props.titleText}</label>
+            <label>{props.titleText}</label>            
             <button className="deleteButton" onClick={()=>props.deleteCard(props.cardId)}><span>&#9932;</span></button>
         </div>
         <div className="mainTextDiv">{props.mainText}</div>
-        <div>{props.bottomText}</div>
-        
+        <div className="bottomDiv">
+            <div>{props.bottomText}</div>
+            <button className="editButton">EDIT</button>
+        </div>
     </div>
     )
 }

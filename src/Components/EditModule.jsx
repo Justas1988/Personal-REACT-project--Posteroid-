@@ -9,16 +9,16 @@ export default function EditModule({ open, editCardHandler }) {
     function titleInputHandler (e) {
         setTitleText(e.target.value)
       }
-      function mainInputHandler (e) {
+    function mainInputHandler (e) {
         setMainText(e.target.value)
       }
-      function bottomInputHandler (e) {
+    function bottomInputHandler (e) {
         setBottomText(e.target.value)
       }
 
     if(open === 0) {
         return null;
-    }
+    }   
 
     return (
         <div className="editModuleContainer">

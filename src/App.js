@@ -64,6 +64,7 @@ editModuleHandler(0)
 
   return (
   <>  
+    <h1 className="blinker">!!!...WORK IN PROGRESS...!!!</h1>
     <NewcardButton addCard={addCardHandler}/>
     <input value={titleText} onChange={titleInputHandler} type="text" maxlenght="17"></input>
     <input value={mainText} onChange={mainInputHandler} type="text" maxlength="150"></input>

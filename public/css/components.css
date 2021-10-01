@@ -4,6 +4,14 @@ body * {
     font-family: Arial, Helvetica, sans-serif;
 
 }
+.blinker {
+        animation: blinker 2s step-start infinite;
+}
+@keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+  }
 .newbutton {
     font-weight: bold;
     color: rgb(98, 53, 170);

@@ -46,7 +46,7 @@ function deleteCardHandler (id) {
 }
 
 function editCardHandler(id, newTitle, newMain, newBottom) { //edit card function
-  let cardsCopy = [...cards]
+  const cardsCopy = [...cards]
   for (let i = 0; i < cardsCopy.length; i++) {
     if (cardsCopy[i].id === id) {
       cardsCopy[i].title = newTitle;
@@ -65,13 +65,14 @@ editModuleHandler(0)
   return (
   <>  
     <h1 className="blinker">!!!...WORK IN PROGRESS...!!!</h1>
+    <h3>Source at: https://github.com/Justas1988/Personal-REACT-project--Posteroid-</h3>
     <NewcardButton addCard={addCardHandler}/>
     <input value={titleText} onChange={titleInputHandler} type="text" maxlenght="17"></input>
     <input value={mainText} onChange={mainInputHandler} type="text" maxlength="150"></input>
     <input value={bottomText} onChange={bottomInputHandler} type="text" maxlength="17"></input>
       <div className="cardContainer">
         <CardsList openEditor={editModuleHandler} cardsArray = {cards} deleteCard = {deleteCardHandler}/>
-        <EditModule editCardHandler = {editCardHandler} open={open}/> 
+        <EditModule editCardHandler = {editCardHandler} open={open} cardsArray = {cards}/> 
       </div>
   </> 
   );

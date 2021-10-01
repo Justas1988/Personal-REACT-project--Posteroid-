@@ -1,20 +1,36 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-export default function EditModule({ open, editCardHandler }) {    
+export default function EditModule({ open, editCardHandler, cardsArray }) {    
+    const [titleText, setEditorTitleText] = useState("New card Title") //input state
+    const [mainText, setEditorMainText] = useState("New Main card Text") //input state
+    const [bottomText, setEditorBottomText] = useState("New Bottom card Text") //input state  
+    
+    function primaryState() {
+        const cardsCopy = [...cardsArray]        
+    for (let i = 0; i < cardsCopy.length; i++) {
+        if (cardsCopy[i].id === open) {
+            const newTitle = cardsCopy[i].title;
+            const newMain = cardsCopy[i].main;
+            const newBottom = cardsCopy[i].bottom;
+            setEditorTitleText(newTitle)
+            setEditorMainText(newMain)
+            setEditorBottomText(newBottom)
+        break;
+            }
+        }
+    }
 
-    const [titleText, setTitleText] = useState("New card Title") //input state
-    const [mainText, setMainText] = useState("New Main card Text") //input state
-    const [bottomText, setBottomText] = useState("New Bottom card Text") //input state
+    useEffect(  () => { primaryState() }, [open] )
 
     function titleInputHandler (e) {
-        setTitleText(e.target.value)
+        setEditorTitleText(e.target.value)
       }
     function mainInputHandler (e) {
-        setMainText(e.target.value)
+        setEditorMainText(e.target.value)
       }
     function bottomInputHandler (e) {
-        setBottomText(e.target.value)
-      }
+        setEditorBottomText(e.target.value)
+      }   
 
     if(open === 0) {
         return null;

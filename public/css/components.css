@@ -81,7 +81,7 @@ label {
     padding: 8px;
 }
 .card {
-    border: solid 4px blueviolet;
+    /* border: solid 4px blueviolet; - currently hardcoded  */
     background-color: #F2F2F2;
     border-radius: 20px;
     padding: 10px;
@@ -114,12 +114,4 @@ label {
     /* box-shadow: 2px -2px 10px 3px rgb(191, 150, 204); */
     transform: translateY(2px);
 
-}
-
-.card:nth-child(2n) {
-    border: solid 4px rgb(58, 103, 199);
-}
-
-.card:nth-child(3n) {
-    border: solid 4px rgb(39, 197, 123);
 }

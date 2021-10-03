@@ -1,8 +1,11 @@
 import React from 'react'
 
-export default function Cards(props) {
+export default function Cards(props) {    
+    const Styles = {borderStyle: 'solid',
+                borderWidth: '3px',
+                borderColor: props.color}
     return (
-    <div className="card">
+    <div className="card" style={Styles}>
         <div className="cardTopDiv">
             <label>{props.titleText}</label>            
             <button className="deleteButton" onClick={()=>props.deleteCard(props.cardId)}><span>&#9932;</span></button>

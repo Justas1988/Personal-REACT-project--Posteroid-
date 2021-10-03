@@ -3,9 +3,10 @@ import NewcardButton from "./Components/NewcardButton";
 import CardsList from "./Components/CardsList";
 import { v4 as uuidv4 } from 'uuid'; //unique ID generator
 import EditModule from "./Components/EditModule";
+import temporaryCards from "./data/TemporaryCards";
 
 function App() {
-  const [cards, setCards] = useState([]) //cardsArray state
+  const [cards, setCards] = useState(temporaryCards) //cardsArray state // remove temporary cards later
   const [titleText, setTitleText] = useState("Card Title") //input state
   const [mainText, setMainText] = useState("Main Card Text") //input state
   const [bottomText, setBottomText] = useState("Card Bottom Text") //input state
@@ -52,7 +53,7 @@ function addCardHandler () {
 
   if (titleText === "" || mainText === "" || bottomText === "") return;
   setCards(prevCards => {
-    return [...prevCards, {id: uuidv4(), title: titleText, main: mainText, bottom: bottomText, date: new Date()}]
+    return [...prevCards, {id: uuidv4(), title: titleText, main: mainText, bottom: bottomText, date: new Date(), color: randomRGBA()}]
   })
 
   setTitleText("Card Title")
@@ -76,21 +77,27 @@ function editCardHandler(id, newTitle, newMain, newBottom) { //edit card functio
       break;
     }    
   }
-
 setCards(cardsCopy)
 editModuleHandler(0)
-
 }
+function randomRGBA() {
+    const randomBetween = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
+    const r = randomBetween(0, 255);
+    const g = randomBetween(0, 255);
+    const b = randomBetween(0, 255);
+    const rgba = `rgba(${r},${g},${b},${0.8})`; // Collect all to a css color string
+    return rgba;
+}    
 
-//console.log(cards) //for developing don't forget to remove
+console.log(cards) //for developing don't forget to remove
   return (
   <>  
     <h1 className="blinker">!!!...WORK IN PROGRESS...!!!</h1>
     <h3>Source at: https://github.com/Justas1988/Personal-REACT-project--Posteroid-</h3>
     <NewcardButton addCard={addCardHandler}/>
-    <input value={titleText} onChange={titleInputHandler} type="text" maxlength="17"></input>
-    <input value={mainText} onChange={mainInputHandler} type="text" maxlength="150"></input>
-    <input value={bottomText} onChange={bottomInputHandler} type="text" maxlength="17"></input>
+    <input value={titleText} onChange={titleInputHandler} type="text" maxLength="17"></input>
+    <input value={mainText} onChange={mainInputHandler} type="text" maxLength="150"></input>
+    <input value={bottomText} onChange={bottomInputHandler} type="text" maxLength="17"></input>
       <div className="cardContainer">
         <CardsList openEditor={editModuleHandler} cardsArray = {cards} deleteCard = {deleteCardHandler}/>
         <EditModule editCardHandler = {editCardHandler} open={open} cardsArray = {cards}/> 

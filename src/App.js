@@ -4,6 +4,7 @@ import CardsList from "./Components/CardsList";
 import { v4 as uuidv4 } from 'uuid'; //unique ID generator
 import EditModule from "./Components/EditModule";
 import temporaryCards from "./data/TemporaryCards";
+import { debounce } from "lodash";
 
 function App() {
   const [cards, setCards] = useState(temporaryCards) //cardsArray state // remove temporary cards later
@@ -58,7 +59,7 @@ function bottomClearInputHandler() {
   setBottomText("")
 }
 
-function addCardHandler () {
+const addCardHandler = debounce (() => {
 
   if (titleText === "" || mainText === "" || bottomText === "") return;
   setCards(prevCards => {
@@ -68,7 +69,7 @@ function addCardHandler () {
   setTitleText("Card Title")
   setMainText("Main Card Text")
   setBottomText("Card Bottom Text")
-}
+}, 300)
 
 function deleteCardHandler (id) { 
   const newCards = [...cards];

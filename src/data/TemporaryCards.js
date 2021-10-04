@@ -29,7 +29,7 @@ const temporaryCards = [{
     date: new Date('December 17, 1998 03:24:00'),
     id: "1d",
     main: "If you tell the truth, you don't have to remember anything.",
-    title: "About lyers",
+    title: "About liars",
     color: "rgba(184,118,31,0.8)"  
 },
 {

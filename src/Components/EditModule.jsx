@@ -35,14 +35,15 @@ export default function EditModule({ open, editCardHandler, cardsArray }) {
     if(open === 0) {
         return null;
     }   
-
     return (
         <div className="editModuleContainer">
             <div className="editModule">                
-                <input type="text" value={titleText} onChange={titleInputHandler} maxLength="17"/>                
-                <input type="text" value={mainText} onChange={mainInputHandler} maxLength="150"/>
-                <input type="text" value={bottomText} onChange={bottomInputHandler} maxLength="17"/>
-                <button onClick={() => editCardHandler(open, titleText, mainText, bottomText)}>Submit</button> 
+                <input className="editTitleInput" type="text" value={titleText} onChange={titleInputHandler} maxLength="17"/>                
+                <textarea className="editMainInput" type="text" value={mainText} onChange={mainInputHandler} maxLength="170"/>
+                <div className="editModuleBottom">
+                    <input className="editBottomInput" type="text" value={bottomText} onChange={bottomInputHandler} maxLength="17"/>
+                    <button className="editButtonEditModule" onClick={() => editCardHandler(open, titleText, mainText, bottomText)}>Submit</button> 
+                </div>
             </div>           
         </div>
     )

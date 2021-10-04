@@ -106,7 +106,7 @@ console.log(cards) //for developing don't forget to remove
     <div className="cardContainer">
       <div className="inputContainer">        
         <input className="labelInput" value={titleText} onChange={titleInputHandler} onClick={titleClearInputHandler} type="text" maxLength="17"></input>
-        <input className="mainTextInput" value={mainText} onChange={mainInputHandler} onClick={mainClearInputHandler} type="text" maxLength="150"></input>
+        <textarea className="mainTextInput" value={mainText} onChange={mainInputHandler} onClick={mainClearInputHandler} type="text" maxLength="170"></textarea>
           <div className="inputBottomContainer">
             <input className="inputBottom" value={bottomText} onChange={bottomInputHandler} onClick={bottomClearInputHandler} type="text" maxLength="17"></input>
             <NewcardButton addCard={addCardHandler}/>

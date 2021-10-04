@@ -29,7 +29,8 @@ body * {
     color: green; 
     border: solid 1px green;
 }
-.inputBottom {
+.inputBottom,
+.editBottomInput {
     height: 20px;
     width: 150px;
 }
@@ -49,7 +50,8 @@ body * {
 }
 
 label,
-.labelInput {
+.labelInput,
+.editTitleInput {
     text-transform: uppercase;
     font-size: 14px;
     font-weight: 800;
@@ -78,7 +80,8 @@ label,
     cursor: pointer;
 }
 .mainTextDiv,
-.mainTextInput {
+.mainTextInput,
+.editMainInput {
     margin-top: 15px;
     margin-bottom: 7px;
     font-size: 20px;
@@ -88,13 +91,21 @@ label,
     word-wrap: break-word;
     padding: 8px;
 }
-.mainTextInput {
+.mainTextInput,
+.editMainInput {
     width: 224px;
     border: none;
     margin-top: 8px;
+    margin-bottom: 3px;
+    resize: none;
+}
+.editButtonEditModule{
+    width:60px;
+    height: 20px;
 }
 .card,
-.inputContainer {
+.inputContainer,
+.editModuleContainer {
     /* border: solid 4px blueviolet; - currently hardcoded  */
     background-color: #F2F2F2;
     border-radius: 20px;
@@ -104,27 +115,29 @@ label,
     height: 350px;
     transition-duration: 0.2s;
 }
-.inputContainer {
+.inputContainer,
+.editModuleContainer {
     border: solid 4px blueviolet;
 }
-.editModuleContainer {
-    width: 500px;
-    height: 500px;
-    background-color: lightcoral;
+.editModuleContainer {        
     position: fixed;
-    left: calc(50% - 15%);
+    right: calc(50vw - 5vw);    
     top: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    
+    flex-direction: column;    
 }
 
 .editModule {
     width: 220px;    
     display: flex;
     flex-direction: column;  
+}
+.editModuleBottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .card:hover {

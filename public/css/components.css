@@ -13,20 +13,25 @@ body * {
     }
   }
 .newbutton {
-    font-weight: bold;
-    color: rgb(98, 53, 170);
-    font-size: 18px;
-    border: none;
-    height: 40px;
-    width: 130px;
-    border-radius: 10px;
+    text-align: center;
+    margin: 0px;    
+    font-size: 13px;
+    border: solid 1px black;
+    height: 20px;
+    width: 44px;
+    border-radius: 5px;
     text-transform: uppercase;
-    margin: 10px;
-    background-color: rgb(200, 167, 231);    
+    margin: 0px;
+    background-color:transparent;    
 }
 
 .newbutton:hover {
-    background-color: rgb(180, 129, 228); 
+    color: green; 
+    border: solid 1px green;
+}
+.inputBottom {
+    height: 20px;
+    width: 150px;
 }
 
 .cardContainer {
@@ -36,13 +41,15 @@ body * {
 }
 
 .cardTopDiv, 
-.bottomDiv {
+.bottomDiv,
+.inputBottomContainer {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-label {
+label,
+.labelInput {
     text-transform: uppercase;
     font-size: 14px;
     font-weight: 800;
@@ -70,7 +77,8 @@ label {
     transform: rotate(90deg);
     cursor: pointer;
 }
-.mainTextDiv {
+.mainTextDiv,
+.mainTextInput {
     margin-top: 15px;
     margin-bottom: 7px;
     font-size: 20px;
@@ -80,7 +88,13 @@ label {
     word-wrap: break-word;
     padding: 8px;
 }
-.card {
+.mainTextInput {
+    width: 224px;
+    border: none;
+    margin-top: 8px;
+}
+.card,
+.inputContainer {
     /* border: solid 4px blueviolet; - currently hardcoded  */
     background-color: #F2F2F2;
     border-radius: 20px;
@@ -89,6 +103,9 @@ label {
     width: 250px;
     height: 350px;
     transition-duration: 0.2s;
+}
+.inputContainer {
+    border: solid 4px blueviolet;
 }
 .editModuleContainer {
     width: 500px;

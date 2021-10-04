@@ -94,14 +94,18 @@ console.log(cards) //for developing don't forget to remove
   <>  
     <h1 className="blinker">!!!...WORK IN PROGRESS...!!!</h1>
     <h3>Source at: https://github.com/Justas1988/Personal-REACT-project--Posteroid-</h3>
-    <NewcardButton addCard={addCardHandler}/>
-    <input value={titleText} onChange={titleInputHandler} type="text" maxLength="17"></input>
-    <input value={mainText} onChange={mainInputHandler} type="text" maxLength="150"></input>
-    <input value={bottomText} onChange={bottomInputHandler} type="text" maxLength="17"></input>
-      <div className="cardContainer">
+    <div className="cardContainer">
+      <div className="inputContainer">        
+        <input className="labelInput" value={titleText} onChange={titleInputHandler} type="text" maxLength="17"></input>
+        <input className="mainTextInput" value={mainText} onChange={mainInputHandler} type="text" maxLength="150"></input>
+          <div className="inputBottomContainer">
+            <input className="inputBottom" value={bottomText} onChange={bottomInputHandler} type="text" maxLength="17"></input>
+            <NewcardButton addCard={addCardHandler}/>
+          </div>
+      </div>
         <CardsList openEditor={editModuleHandler} cardsArray = {cards} deleteCard = {deleteCardHandler}/>
         <EditModule editCardHandler = {editCardHandler} open={open} cardsArray = {cards}/> 
-      </div>
+    </div>
   </> 
   );
 }

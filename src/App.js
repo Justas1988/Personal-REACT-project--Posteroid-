@@ -39,14 +39,23 @@ function sorter(a, b) {
 function editModuleHandler(e) {
   setOpen(e);
 }
-function titleInputHandler (e) {
+function titleInputHandler(e) {
   setTitleText(e.target.value)
 }
-function mainInputHandler (e) {
+function mainInputHandler(e) {
   setMainText(e.target.value)
 }
-function bottomInputHandler (e) {
+function bottomInputHandler(e) {
   setBottomText(e.target.value)
+}
+function titleClearInputHandler() {
+  setTitleText("")
+}
+function mainClearInputHandler() {
+  setMainText("")
+}
+function bottomClearInputHandler() {
+  setBottomText("")
 }
 
 function addCardHandler () {
@@ -96,10 +105,10 @@ console.log(cards) //for developing don't forget to remove
     <h3>Source at: https://github.com/Justas1988/Personal-REACT-project--Posteroid-</h3>
     <div className="cardContainer">
       <div className="inputContainer">        
-        <input className="labelInput" value={titleText} onChange={titleInputHandler} type="text" maxLength="17"></input>
-        <input className="mainTextInput" value={mainText} onChange={mainInputHandler} type="text" maxLength="150"></input>
+        <input className="labelInput" value={titleText} onChange={titleInputHandler} onClick={titleClearInputHandler} type="text" maxLength="17"></input>
+        <input className="mainTextInput" value={mainText} onChange={mainInputHandler} onClick={mainClearInputHandler} type="text" maxLength="150"></input>
           <div className="inputBottomContainer">
-            <input className="inputBottom" value={bottomText} onChange={bottomInputHandler} type="text" maxLength="17"></input>
+            <input className="inputBottom" value={bottomText} onChange={bottomInputHandler} onClick={bottomClearInputHandler} type="text" maxLength="17"></input>
             <NewcardButton addCard={addCardHandler}/>
           </div>
       </div>

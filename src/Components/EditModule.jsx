@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 
 
-export default function EditModule({ open, editCardHandler, cardsArray }) {    
+export default function EditModule({ open, editCardHandler, cardsArray, editModuleHandler }) {    
     const [titleText, setEditorTitleText] = useState("New card Title") //input state
     const [mainText, setEditorMainText] = useState("New Main card Text") //input state
     const [bottomText, setEditorBottomText] = useState("New Bottom card Text") //input state  
@@ -40,7 +40,11 @@ export default function EditModule({ open, editCardHandler, cardsArray }) {
       }
     function bottomInputHandler (e) {
         setEditorBottomText(e.target.value)
-      }   
+      }  
+    function editCardTrigger(open, titleText, mainText, bottomText) {
+        editCardHandler(open, titleText, mainText, bottomText)
+        editModuleHandler(0)
+    }   
 
     if(open === 0) {
         return null;
@@ -52,7 +56,7 @@ export default function EditModule({ open, editCardHandler, cardsArray }) {
                 <textarea className="editMainInput" type="text" value={mainText} onChange={mainInputHandler} maxLength="170"/>
                 <div className="editModuleBottom">
                     <input className="editBottomInput" type="text" value={bottomText} onChange={bottomInputHandler} maxLength="17"/>
-                    <button className="editButtonEditModule" onClick={() => editCardHandler(open, titleText, mainText, bottomText)}>Submit</button> 
+                    <button className="editButtonEditModule" onClick={() => editCardTrigger(open, titleText, mainText, bottomText)}>Submit</button> 
                 </div>
             </div>           
         </div>

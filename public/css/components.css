@@ -128,14 +128,14 @@ label,
 .editModuleContainer {
     border: solid 4px blueviolet;
 }
-.editModuleContainer {        
-    position: fixed;
-    right: calc(50vw - 5vw);    
-    top: 200px;
+.editModuleContainer {           
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;    
+    flex-direction: column;
+    transform: translate(-261px, -1px);
+    z-index: 20;
+    position: absolute;    
 }
 
 .editModule {

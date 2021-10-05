@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import NewcardButton from "./Components/NewcardButton";
 import CardsList from "./Components/CardsList";
 import { v4 as uuidv4 } from 'uuid'; //unique ID generator
-import EditModule from "./Components/EditModule";
 import temporaryCards from "./data/TemporaryCards";
 import { debounce } from "lodash";
 
@@ -11,7 +10,6 @@ function App() {
   const [titleText, setTitleText] = useState("Card Title") //input state
   const [mainText, setMainText] = useState("Main Card Text") //input state
   const [bottomText, setBottomText] = useState("Card Bottom Text") //input state
-  const [open, setOpen] = useState(0) //editModule state
 
   /////////sorting algorithm with use effect ///////////////
 
@@ -37,9 +35,8 @@ function sorter(a, b) {
   /////////sorting algorithm with use effect ///////////////
 
 
-function editModuleHandler(e) {
-  setOpen(e);
-}
+
+
 function titleInputHandler(e) {
   setTitleText(e.target.value)
 }
@@ -88,8 +85,8 @@ function editCardHandler(id, newTitle, newMain, newBottom) { //edit card functio
     }    
   }
 setCards(cardsCopy)
-editModuleHandler(0)
 }
+
 function randomRGBA() {
     const randomBetween = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
     const r = randomBetween(0, 255);
@@ -124,8 +121,7 @@ console.log(cards) //for developing don't forget to remove
             <NewcardButton addCard={addCardHandler}/>
           </div>
       </div>
-        <CardsList likesIncrementer={likesIncrementer} openEditor={editModuleHandler} cardsArray = {cards} deleteCard = {deleteCardHandler}/>
-        <EditModule editCardHandler = {editCardHandler} open={open} cardsArray = {cards}/> 
+        <CardsList editCardHandler = {editCardHandler} likesIncrementer={likesIncrementer}  cardsArray = {cards} deleteCard = {deleteCardHandler}/>         
     </div>
   </> 
   );

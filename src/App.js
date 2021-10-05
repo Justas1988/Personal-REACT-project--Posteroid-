@@ -63,7 +63,7 @@ const addCardHandler = debounce (() => {
 
   if (titleText === "" || mainText === "" || bottomText === "") return;
   setCards(prevCards => {
-    return [...prevCards, {id: uuidv4(), title: titleText, main: mainText, bottom: bottomText, date: new Date(), color: randomRGBA()}]
+    return [...prevCards, {id: uuidv4(), title: titleText, main: mainText, bottom: bottomText, date: new Date(), color: randomRGBA(), likesNumber: 0}]
   })
 
   setTitleText("Card Title")
@@ -97,7 +97,18 @@ function randomRGBA() {
     const b = randomBetween(0, 255);
     const rgba = `rgba(${r},${g},${b},${0.8})`; // Collect all to a css color string
     return rgba;
-}    
+}
+
+const likesIncrementer = debounce ((id) => {
+  const cardsCopy = [...cards]        
+  for (let i = 0; i < cardsCopy.length; i++) {
+      if (cardsCopy[i].id === id) {
+          cardsCopy[i].likesNumber++
+          break;
+      }
+  }
+  setCards(cardsCopy)  
+}, 150)    
 
 console.log(cards) //for developing don't forget to remove
   return (
@@ -113,7 +124,7 @@ console.log(cards) //for developing don't forget to remove
             <NewcardButton addCard={addCardHandler}/>
           </div>
       </div>
-        <CardsList openEditor={editModuleHandler} cardsArray = {cards} deleteCard = {deleteCardHandler}/>
+        <CardsList likesIncrementer={likesIncrementer} openEditor={editModuleHandler} cardsArray = {cards} deleteCard = {deleteCardHandler}/>
         <EditModule editCardHandler = {editCardHandler} open={open} cardsArray = {cards}/> 
     </div>
   </> 

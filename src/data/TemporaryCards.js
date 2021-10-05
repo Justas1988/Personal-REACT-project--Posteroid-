@@ -6,7 +6,8 @@ const temporaryCards = [{
     id: "1a",
     main: "Your pay depends on how hard you are to replace, not by how hard you work",
     title: "Demotivation",  
-    color: "rgba(216,153,250,0.8)"  
+    color: "rgba(216,153,250,0.8)",  
+    likesNumber: 25
 },
 {
     bottom: "Albert Einstein",
@@ -14,7 +15,9 @@ const temporaryCards = [{
     id: "1b",
     main: "Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.",
     title: "Bitter truth",   
-    color: "rgba(214,51,122,0.8)"
+    color: "rgba(214,51,122,0.8)",
+    likesNumber: 325
+
 },
 {
     bottom: "Mae West",
@@ -22,7 +25,8 @@ const temporaryCards = [{
     id: "1c",
     main: "You only live once, but if you do it right, once is enough.",
     title: "Quality > Quantiny",
-    color: "rgba(22,148,123,0.8)"    
+    color: "rgba(22,148,123,0.8)",
+    likesNumber: 0    
 },
 {
     bottom: "Mark Twain",
@@ -30,7 +34,8 @@ const temporaryCards = [{
     id: "1d",
     main: "If you tell the truth, you don't have to remember anything.",
     title: "About liars",
-    color: "rgba(184,118,31,0.8)"  
+    color: "rgba(184,118,31,0.8)",
+    likesNumber: 36  
 },
 {
     bottom: "Oscar Wilde",
@@ -38,7 +43,8 @@ const temporaryCards = [{
     id: "1e",
     main: "Always forgive your enemies; nothing annoys them so much.",
     title: "Don't hold it inside",
-    color: "rgba(178,25,212,0.8)"    
+    color: "rgba(178,25,212,0.8)",
+    likesNumber: 1255   
 }]
 
 export default temporaryCards;

@@ -105,7 +105,7 @@ const likesIncrementer = debounce ((id) => {
       }
   }
   setCards(cardsCopy)  
-}, 150)    
+}, 400)    
 
 console.log(cards) //for developing don't forget to remove
   return (

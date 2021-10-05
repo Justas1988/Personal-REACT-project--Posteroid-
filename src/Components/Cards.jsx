@@ -1,9 +1,25 @@
 import React, { useState } from 'react';
-import EditModule from "./EditModule"
+import EditModule from "./EditModule";
+import { debounce } from "lodash";
+
 
 
 export default function Cards(props) {  
     const [open, setOpen] = useState(0) //editModule state
+    const [likeStyle, setlikeStyle] = useState();
+    
+    const styleLikeDrop = {
+        animationName: "likedrop",
+    }
+    const likesIncrementerTrigger = debounce (() => {
+        props.likesIncrementer(props.cardId)
+        setlikeStyle(styleLikeDrop) 
+        LikeStyleReset()       
+    }, 300)
+    
+    const LikeStyleReset = debounce (() => {
+        setlikeStyle()
+    }, 600)
 
     function editModuleHandler(e) {
         setOpen(e);
@@ -28,8 +44,8 @@ export default function Cards(props) {
             <button className="editButton" onClick={() => editModuleHandler(props.cardId)}>EDIT</button>
         </div>
             <div className="likeDiv" style={BorderColor}>
-                <button className="likeButton" onClick={() => props.likesIncrementer(props.cardId)}><span>&#9757;</span></button>
-                <div className="likesContainer">{props.likes}</div>
+                <button className="likeButton" onClick={() => likesIncrementerTrigger(props.cardId)}><span>&#128077;</span></button>
+                <div style={likeStyle} className="likesContainer">{props.likes}</div>
             </div>
     </div>
     <div>

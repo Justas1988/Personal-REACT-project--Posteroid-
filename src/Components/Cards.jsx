@@ -2,32 +2,35 @@ import React, { useState } from 'react';
 import EditModule from "./EditModule";
 import { debounce } from "lodash";
 
-
-
 export default function Cards(props) {  
     const [open, setOpen] = useState(0) //editModule state
     const [likeStyle, setlikeStyle] = useState();
+
+    //likes increment trigger /////////////
     
     const styleLikeDrop = {
         animationName: "likedrop",
-    }
+    }    
+
     const likesIncrementerTrigger = debounce (() => {
         props.likesIncrementer(props.cardId)
         setlikeStyle(styleLikeDrop) 
         LikeStyleReset()       
-    }, 300)
+    }, 100)
     
     const LikeStyleReset = debounce (() => {
         setlikeStyle()
     }, 600)
 
-    function editModuleHandler(e) {
-        setOpen(e);
-    }
-  
     const Styles = {borderStyle: 'solid',
                 borderWidth: '3px',
                 borderColor: props.color}
+
+    //likes increment trigger ///////////////////
+
+    function editModuleHandler(e) {
+        setOpen(e);
+    }    
 
     const BorderColor = {
         borderColor: props.color

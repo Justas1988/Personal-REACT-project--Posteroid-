@@ -5,14 +5,11 @@ export default function EditModule({ open, editCardHandler, cardsArray, editModu
     const [titleText, setEditorTitleText] = useState("New card Title") //input state
     const [mainText, setEditorMainText] = useState("New Main card Text") //input state
     const [bottomText, setEditorBottomText] = useState("New Bottom card Text") //input state  
-    const [borderColor, setBorderColor] = useState("transparent") //edit window border color state
-
-    
+    const [borderColor, setBorderColor] = useState("transparent") //edit window border color state    
     
     function borderColorSetter(color) {        
-        setBorderColor(color)        
+        setBorderColor(color)       
     }
-
     
     const primaryState = useCallback( () => {
         const cardsCopy = [...cardsArray]        

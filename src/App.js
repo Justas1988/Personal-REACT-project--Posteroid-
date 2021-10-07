@@ -96,6 +96,8 @@ function randomRGBA() {
     return rgba;
 }
 
+//likes increment function
+
 const likesIncrementer = debounce ((id) => {
   const cardsCopy = [...cards]        
   for (let i = 0; i < cardsCopy.length; i++) {
@@ -105,7 +107,10 @@ const likesIncrementer = debounce ((id) => {
       }
   }
   setCards(cardsCopy)  
-}, 400)    
+}, 350)    
+
+//likes increment function
+
 
 console.log(cards) //for developing don't forget to remove
   return (
